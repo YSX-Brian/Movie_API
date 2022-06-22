@@ -1,11 +1,14 @@
 const express = require('express'),
-      morgan = require('morgan');
+      morgan = require('morgan'),
+      fs = require('fs'),
+      path = require('path');
 
 const app = express();
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {flags: 'a'})
 
 let topMovies = ['Movies'];
 
-app.use(morgan('common'));
+app.use(morgan('combined', {stream: accessLogStream}));
 app.use(express.static('public'));
 
 app.get('/movies', (req, res) => {
