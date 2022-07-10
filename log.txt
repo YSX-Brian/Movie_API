@@ -76,3 +76,4 @@
 ::1 - - [10/Jul/2022:21:44:26 +0000] "DELETE /users/Mona HTTP/1.1" 200 27 "-" "PostmanRuntime/7.29.0"
 ::1 - - [10/Jul/2022:21:44:42 +0000] "GET /documentation.html HTTP/1.1" 200 4132 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36"
 ::1 - - [10/Jul/2022:21:52:42 +0000] "GET /documentation.html HTTP/1.1" 200 4620 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36"
+::1 - - [10/Jul/2022:21:56:12 +0000] "GET /documentation.html HTTP/1.1" 200 4620 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36"
