@@ -236,7 +236,7 @@ app.get('/documentation.html', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Welcome to myFlix- an application about movies. Create a profile, browse our movie database and save your favorites. Learn more at the "/documentation.html" endpoint.');
+  res.send('Welcome to myFlix- an application about movies. Create a profile, browse our movie database and save your favorites. Learn more at /documentation.html');
 });
 
 //for errors
