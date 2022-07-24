@@ -232,6 +232,10 @@ app.get('/documentation.html', (req, res) => {
   res.sendFile('/documentation.html', { root: __dirname });
 });
 
+app.get('/', (req, res) => {
+  res.send('Welcome to myFlix- an application about movies. Create a profile, browse our movie database and save your favorites. Learn more at the "/documentation.html" endpoint.');
+});
+
 //for errors
 app.use((err, req, res, next) => {
   console.error(err.stack);
