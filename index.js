@@ -44,7 +44,7 @@ const passport = require('passport');
 require('./passport');
 
 //return a list of all movies
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies', (req, res) => {
     Movies.find()
         .then((movies) => {
             res.status(201).json(movies);
@@ -56,7 +56,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 });
 
 //return data on a single movie by search
-app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/:Title', (req, res) => {
     Movies.findOne({ Title: req.params.Title })
         .then((movie) => {
             if (movie) {
@@ -72,7 +72,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 });
 
 //return data on a single genre by search
-app.get('/movies/genre/:GenreName', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/genre/:GenreName', (req, res) => {
     Movies.findOne({ 'Genre.Name': req.params.GenreName })
         .then((genre) => {
             if (genre) {
@@ -88,7 +88,7 @@ app.get('/movies/genre/:GenreName', passport.authenticate('jwt', { session: fals
 });
 
 //return data on a single director by search
-app.get('/movies/directors/:DirectorName', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/directors/:DirectorName', (req, res) => {
     Movies.findOne({ 'Director.Name': req.params.DirectorName })
         .then((director) => {
             if (director) {
