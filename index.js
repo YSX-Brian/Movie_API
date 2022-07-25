@@ -220,7 +220,7 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { se
     (err, updatedUser) => {
         if (err) {
             console.error(err);
-            res.status(500).send('Error: ' + err);
+            res.status(500).send('Check that the movie ID is valid. Error: ' + err);
         } else {
             res.json(updatedUser);
         }
