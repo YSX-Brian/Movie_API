@@ -249,7 +249,7 @@ app.get('/documentation.html', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Welcome to myFlix- an application about movies. Create a profile, browse our movie database, and save your favorites. Learn more at https://myflix17507.herokuapp.com/documentation.html');
+  res.send('Welcome to myFlix- an application about movies. Create a profile, browse our movie database, and save your favorites. Learn more at:  https://myflix17507.herokuapp.com/documentation.html');
 });
 
 //for errors
