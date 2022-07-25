@@ -113,7 +113,7 @@ app.get('/movies/directors/:DirectorName', (req, res) => {
   Birthday: Date
 }*/
 app.post('/users', [
-    check('Username', 'Username is required').isLength({min: 5}),
+    check('Username', 'Username is required and needs to be at least 5 characters.').isLength({min: 5}),
     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
     check('Password', 'Password is required').not().isEmpty(),
     check('Email', 'Email does not appear to be valid').isEmail()
@@ -163,10 +163,10 @@ app.post('/users', [
   Birthday: Date
 }*/
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
-    check('Username', 'Username is required').isLength({min: 5}),
+    check('Username', 'Username is required and needs to be at least 5 characters.').isLength({min: 5}),
     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
     check('Password', 'Password is required').not().isEmpty(),
-    check('Email', 'Email does not appear to be valid').isEmail()
+    check('Email', 'Valid email is required.').isEmail()
 ], (req, res) => {
 
     let errors = validationResult(req);
@@ -204,7 +204,7 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
     (err, updatedUser) => {
         if (err) {
             console.error(err);
-            res.status(500).send('Error: ' + err);
+            res.status(500).send('Check that the movie ID is valid. Error: ' + err);
         } else {
             res.json(updatedUser);
         }
