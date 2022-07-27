@@ -28,6 +28,47 @@
                 <th>Response Format</th>
             </tr>
             <tr>
+                <td>Allow new users to register</td>
+                <td>/users</td>
+                <td>POST</td>
+                <td>A JSON object with at minimum a username, password, and email address. Ex:<br>
+                    <code>{"Username": String (required),
+                        <br>"Password": String (required),
+                        <br>"Email": String (required),
+                        <br>"Birthday": Date (optional)}
+                    </code>
+                </td>
+                <td>The created JSON object as confirmation. Ex:<br>
+                    <code>{"Username": String,
+                        <br>"Password": String,
+                        <br>"Email": String,
+                        <br>"Birthday": Date}
+                    </code>
+                </td>
+            </tr>
+            <tr>
+                <td>User Login</td>
+                <td>/login</td>
+                <td>POST</td>
+                <td>A JSON object with a username and password. Ex:<br>
+                    <code>{"Username": String (required),
+                        <br>"Password": String (required)
+                    </code>
+                </td>
+                <td>A JSON object with the user's information and authorization token. Ex:<br>
+                    <code>
+                        { "user": {
+                        <br>"_id": String,
+                        <br>"Username": String,
+                        <br>"Password": String,
+                        <br>"Email": String,
+                        <br>"Birthday": Date,
+                        <br>"FavoriteMovies": [] },
+                        <br>"token": String }
+                    </code>
+                </td>
+            </tr>
+            <tr>
                 <td>Return a list of all movies.</td>
                 <td>/movies</td>
                 <td>GET</td>
@@ -65,25 +106,6 @@
                 </td>
             </tr>
             <tr>
-                <td>Allow new users to register</td>
-                <td>/users</td>
-                <td>POST</td>
-                <td>A JSON object with at minimum a username, password, and email address. Ex:<br>
-                    <code>{"Username": String (required),
-                        <br>"Password": String (required),
-                        <br>"Email": String (required),
-                        <br>"Birthday": Date (optional)}
-                    </code>
-                </td>
-                <td>The created JSON object as confirmation. Ex:<br>
-                    <code>{"Username": String,
-                        <br>"Password": String,
-                        <br>"Email": String,
-                        <br>"Birthday": Date}
-                    </code>
-                </td>
-            </tr>
-            <tr>
                 <td>Allow users to update their account information.</td>
                 <td>/users/:Username</td>
                 <td>PUT</td>
@@ -107,14 +129,18 @@
                 <td>/users/:Username/movies/:MovieID</td>
                 <td>POST</td>
                 <td>None</td>
-                <td>A JSON object reflecting the updated movie list.</td>
+                <td>A JSON object reflecting the updated favorite movie array. Ex: <br>
+                    <code>"FavoriteMovies": [ "Example_movie_id" ]</code>
+                </td>
             </tr>
             <tr>
                 <td>Allow users to remove a movie from their list of favorites</td>
                 <td>users/:Username/movies/:MovieID</td>
                 <td>DELETE</td>
                 <td>None</td>
-                <td>A JSON object reflecting the updated movie list.</td>
+                <td>A JSON object reflecting the updated favorite movie array. Ex: <br>
+                    <code>"FavoriteMovies": []</code>
+                </td>
             </tr>
             <tr>
                 <td>Allow existing users to deregister</td>
@@ -123,6 +149,7 @@
                 <td>None</td>
                 <td>A message confirming successful deregistration.</td>
             </tr>
+
         </table>
 
     </body>
