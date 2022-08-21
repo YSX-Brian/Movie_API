@@ -151,7 +151,7 @@ app.post('/users', [
 });
 
 
-// Update a user's info, by username
+// Update a user's info by username
 /* We’ll expect JSON in this format
 {
   Username: String,
