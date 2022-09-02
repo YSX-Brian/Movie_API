@@ -67,9 +67,25 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (r
         });
 });
 
-//return data on a single movie by search
+//return data on a single movie by title search
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.findOne({ Title: req.params.Title })
+        .then((movie) => {
+            if (movie) {
+                return res.json(movie);
+            } else {
+                res.status(400).send('Movie not found.');
+            }
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send('Error: ' + err);
+        });
+});
+
+//return data on a single movie by ID search
+app.get('/movies/:_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Movies.findOne({ _id: req.params._id })
         .then((movie) => {
             if (movie) {
                 return res.json(movie);
