@@ -84,7 +84,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 });
 
 //return data on a single movie by ID search
-app.get('/movies/:_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/find/:_id', passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.findOne({ _id: req.params._id })
         .then((movie) => {
             if (movie) {
